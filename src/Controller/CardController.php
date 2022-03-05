@@ -43,7 +43,7 @@ class CardController extends AbstractController
             $card->setUser($this->security->getUser());
             $this->em->persist($card);
             $this->em->flush();
-            return $this->redirectToRoute('home');
+            return $this->redirectToRoute('card_show');
         }
 
         return $this->render('card/create.html.twig', [
@@ -55,7 +55,9 @@ class CardController extends AbstractController
      */
     public function show(): Response
     {
-        $cards = $this->em->getRepository(Card::class)->findAll();
+        $user = $this->security->getUser()->getId();
+        $cards = $this->em->getRepository(Card::class)->findByCurrentUser($user);
+
         return $this->render('card/show.html.twig', [
             'cards' => $cards,
         ]);

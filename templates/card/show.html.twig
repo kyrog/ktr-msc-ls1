@@ -2,14 +2,22 @@
 
 
 {% block container %}
-    {% for card in cards %}
-        <div class="card" style="width: 18rem;">
-            <div class="card-body">
-                <h5 class="card-title">{{ card.name }}</h5>
-                <h6 class="card-subtitle mb-2 text-muted">{{ card.companyName }}</h6>
-                <p class="card-text"><p>{{ card.email }}</p>
-                <p class="card-text"><p>{{ card.phone }}</p>
+    {% if cards is empty %}
+        <h2>You haven't created any card yet, let create a new one !</h2>
+        <a class="nav-link warning" href="{{ path("card_create") }}">
+            <button type="button" class="btn btn-primary">Create a new card</button>
+        </a>
+    {% else %}
+        {% for card in cards %}
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">{{ card.name }}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{ card.companyName }}</h6>
+                    <p class="card-text"><p>{{ card.email }}</p>
+                    <p class="card-text"><p>{{ card.phone }}</p>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    {% endif %}
+
 {% endblock %}
