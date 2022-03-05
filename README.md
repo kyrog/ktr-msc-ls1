@@ -11,6 +11,11 @@ then :
 
 - php bin/console doctrine:database:create
 
+to create tables in the bd use command line :
+
+- php bin/console doctrine:migrations:migrate
+
+
 ### run the server 
 
 php bin/console server:run 
