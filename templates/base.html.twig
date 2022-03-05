@@ -12,6 +12,12 @@
     </head>
     <body>
         {% block body %}
+            <div class="container">
+                {% include 'header.html.twig' %}
+                {% block container %}
+                {% endblock %}
+                {% include 'footer.html.twig' %}
+            </div>
         {% endblock %}
     </body>
 </html>
