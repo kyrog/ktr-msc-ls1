@@ -5,6 +5,12 @@
 {% block container %}
     {% if is_granted('IS_AUTHENTICATED_REMEMBERED') %}
         <h1> Create your business card easily: </h1>
+        <a class="nav-link warning" href="{{ path("card_create") }}">
+            <button type="button" class="btn btn-primary">Create a new card</button>
+        </a>
+        <button type="button" class="btn btn-primary">my cards</button>
+
+
     {% else %}
         <div class="example-wrapper text-center mt-5">
             <h1>Welcome to KTR project</h1>
