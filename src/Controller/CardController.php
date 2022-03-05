@@ -50,4 +50,15 @@ class CardController extends AbstractController
             'form' => $form->createView(),
         ]);
     }
+    /**
+     * @Route("/card/show", name="card_show")
+     */
+    public function show(): Response
+    {
+        $cards = $this->em->getRepository(Card::class)->findAll();
+        return $this->render('card/show.html.twig', [
+            'cards' => $cards,
+        ]);
+    }
+
 }

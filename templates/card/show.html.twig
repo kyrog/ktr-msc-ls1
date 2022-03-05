@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+
+{% block container %}
+    {% for card in cards %}
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{ card.name }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ card.companyName }}</h6>
+                <p class="card-text"><p>{{ card.email }}</p>
+                <p class="card-text"><p>{{ card.phone }}</p>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
